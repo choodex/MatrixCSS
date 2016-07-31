@@ -1,0 +1,36 @@
+body {
+    background: black;
+}
+div {
+    font-family: "Arial";
+    font-size: 20px;
+    color: black;
+    float: left;
+}
+.animFlair {
+     animation-name: flair;
+     animation-duration: 2s;
+     animation-delay: 1s;
+     animation-iteration-count: infinite;
+     animation-timing-function: ease-out;
+}
+@keyframes flair {
+    0% {
+        color: #0F0;
+    }
+    100% {
+        color: black;
+    }
+}
+/* .animFall {
+   animation-name: fall;
+   animation-duration: 2s;
+   animation-delay: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease-in;
+}
+@keyframes fall {
+   100% {
+      transform: translatey(275px);
+   }
+} */

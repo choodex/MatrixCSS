@@ -1,0 +1,19 @@
+{
+    "name": "MatrixCSS",
+    "version": "0.1.0",
+    "description": "Matrix Rain",
+    "main": "electronMain.js",
+    "scripts": {
+        "start": "electron electronMain.js"
+    },
+    "repository" :
+        {
+            "type" : "git",
+            "url" : "https://github.com/choodex/MatrixCSS.git"
+        },
+    "license": "MIT",
+    "homepage": "http://choodometry.com/",
+    "devDependencies": {
+        "electron-prebuilt": "^1.1.2"
+    }
+}

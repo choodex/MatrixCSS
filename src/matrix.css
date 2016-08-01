@@ -1,11 +1,12 @@
 body {
-    background: black;
+    background-color : black;
 }
 div {
-    font-family: "Arial";
+    font-family: Arial;
     font-size: 2em;
+    width: 2em;
     color: black;
-    float: left;
+    position: absolute;
 }
 .animFlair {
      animation-name: flair;
@@ -22,15 +23,3 @@ div {
         color: black;
     }
 }
-/* .animFall {
-   animation-name: fall;
-   animation-duration: 2s;
-   animation-delay: 1s;
-   animation-iteration-count: infinite;
-   animation-timing-function: ease-in;
-}
-@keyframes fall {
-   100% {
-      transform: translatey(275px);
-   }
-} */

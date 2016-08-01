@@ -1,6 +1,3 @@
-// $("#a").addClass('animFall');
-// $("#e").addClass('animFlair');
-
 createDiv();
 createDiv();
 createDiv();
@@ -8,7 +5,9 @@ createDiv();
 function createDiv() {
    var aDiv = document.createElement("div");
    var divID = 'aDiv' + getRandomIntInclusive(0,10000);
+   var yPos = getRandomIntInclusive(0, $(document).width());
    aDiv.setAttribute("id", divID);
+   aDiv.setAttribute("style", "z-index:" + getRandomIntInclusive(1,3) + "; top:0px; left:"+ yPos + "px;")
    aDiv.innerHTML = "<span>&#25935;</span><br/><span>&#25463;</span><br/><span>&#30340;</span><br/><span>&#26837;</span><br/><span>&#33394;</span><br/><span>&#29392;</span><br/><span>&#29432;</span>";
    $("body").prepend(aDiv);
    addAnimation(divID);
@@ -29,7 +28,7 @@ function addAnimation(divID) {
            "animation-timing-function": "ease-out"
        });
        if(index == lastIndex) {
-           //Just once, create a new Div to replace this one, and remove this one.
+           //Just once, after the last span animates
            $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
               function(e) {
                   createDiv();

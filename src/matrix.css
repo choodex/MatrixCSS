@@ -5,7 +5,7 @@ div {
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 2em;
     width: 2em;
-    color: black;
+    color: rgba(0,0,0,0);
     position: absolute;
     top: 0px;
 }

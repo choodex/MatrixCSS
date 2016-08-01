@@ -40,7 +40,8 @@ function addAnimationToDiv(divID) {
            "animation-duration": "2200ms",
            "animation-delay": (animSpeed*index/lastIndex) + "ms",
            "animation-iteration-count": "1",
-           "animation-timing-function": "ease-out"
+           "animation-timing-function": "ease-out",
+           "animation-fill-mode": "forwards"
        });
        if(index == lastIndex) {
            //Just once, after the last span animates

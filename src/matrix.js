@@ -1,5 +1,5 @@
 //Settings
-var MAX_Z_INDEX = 50;
+var MAX_Z_INDEX = 5;
 var NUM_DIVS = 10;
 var DOC_WIDTH = $(window).width();  //Limit to size of viewport for now
 
@@ -11,7 +11,7 @@ for(var x = 0; x < NUM_DIVS; x++) {
 function createDiv() {
    var aDiv = document.createElement("div");
 
-   var divID = 'aDiv' + getRandomIntInclusive(0,10000);
+   var divID = 'aDiv' + getRandomIntInclusive(0,1000);
    aDiv.setAttribute("id", divID);
 
    aDiv.setAttribute("style", "z-index:" + currentZ + "; left:"+ getRandomIntInclusive(0, DOC_WIDTH) + "px;");
@@ -49,13 +49,7 @@ function addAnimationToDiv(divID) {
                   createDiv();
                   $("div#" + e.currentTarget.parentNode.id).remove();
               });
-       } //else {
-      //     //Just once, after the last span animates
-      //     $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
-      //        function(e) {
-      //           e.currentTarget.textContent = '&nbsp;';
-      //        });
-      //  }
+       }
    });
 } //end myAnimate();
 

@@ -11,7 +11,7 @@ for(var x = 0; x < NUM_DIVS; x++) {
 function createDiv() {
    var aDiv = document.createElement("div");
 
-   var divID = 'aDiv' + getRandomIntInclusive(0,1000);
+   var divID = 'stream' + getRandomIntInclusive(0,1000);
    aDiv.setAttribute("id", divID);
 
    aDiv.setAttribute("style", "z-index:" + currentZ + "; left:"+ getRandomIntInclusive(0, DOC_WIDTH) + "px;");
@@ -29,21 +29,22 @@ function createDiv() {
 }
 
 function addAnimationToDiv(divID) {
-   //Get all direct children (i.e. the spans)
-   var column = $("div#" + divID + " > span");
-   var lastIndex = column.length - 1;
+   //Get all direct children of the div/stream (i.e. all of the spans)
+   var stream = $("div#" + divID + " > span");
+   var lastSpanIndex = stream.length - 1;
    var animSpeed = getRandomIntInclusive(900,2900);
 
-   column.each(function(index) {
+   //Add the animation to each span
+   stream.each(function(index) {
        $(this).css({
            "animation-name": "flare",
            "animation-duration": "2200ms",
-           "animation-delay": (animSpeed*index/lastIndex) + "ms",
+           "animation-delay": (animSpeed*index/lastSpanIndex) + "ms",
            "animation-iteration-count": "1",
            "animation-timing-function": "ease-out",
            "animation-fill-mode": "forwards"
        });
-       if(index == lastIndex) {
+       if(index == lastSpanIndex) {
            //Just once, after the last span animates
            $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
               function(e) {

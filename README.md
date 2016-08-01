@@ -17,3 +17,9 @@ If electron is not installed globally, there may be issues running the npm start
 ```bash
 ./node_modules/.bin/electron .
 ```
+
+Or, open the src/index.html file in your favorite, modern browser.
+
+## DISCLAIMER
+
+The characters generated in this app come from a random number that is then encoded. Any resulting phrases or words are purely coincidental.

@@ -18,12 +18,13 @@ function addAnimation(divID) {
    //Get all direct children (i.e. the spans)
    var column = $("div#" + divID + " > span");
    var lastIndex = column.length - 1;
+   var animSpeed = getRandomIntInclusive(300,2900);
 
    column.each(function(index) {
        $(this).css({
            "animation-name": "flair",
-           "animation-duration": "2.2s",
-           "animation-delay": (index/2) + "s",
+           "animation-duration": "2200ms",
+           "animation-delay": (animSpeed*index/lastIndex) + "ms",
            "animation-iteration-count": "1",
            "animation-timing-function": "ease-out"
        });

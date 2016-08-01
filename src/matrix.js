@@ -36,7 +36,7 @@ function addAnimationToDiv(divID) {
 
    column.each(function(index) {
        $(this).css({
-           "animation-name": "flair",
+           "animation-name": "flare",
            "animation-duration": "2200ms",
            "animation-delay": (animSpeed*index/lastIndex) + "ms",
            "animation-iteration-count": "1",

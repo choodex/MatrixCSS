@@ -1,7 +1,9 @@
 //Settings
-var MAX_Z_INDEX = 5;
-var NUM_DIVS = 10;
-var MAX_WIDTH = $('div.container').width();
+var MAX_Z_INDEX = 2;
+var MAX_WIDTH = $('div.container').width() - 30;
+var MAX_HEIGHT = $('div.container').height() - 30;
+var NUM_DIVS = Math.floor(MAX_WIDTH / 30);   //Estimating high; 30px is average width of a character
+var NUM_SPANS = Math.floor(MAX_HEIGHT / 25);
 
 for(var x = 0; x < NUM_DIVS; x++) {
     createDiv();
@@ -16,8 +18,8 @@ function createDiv() {
    aDiv.setAttribute("style", "z-index:" + getRandomIntInclusive(0, MAX_Z_INDEX) + "; left:"+ getRandomIntInclusive(0, MAX_WIDTH) + "px;");
 
    var text = '';
-   for(var x = 0; x < 20; x++) {
-       text += "<span>&#" + getRandomIntInclusive(20010, 33300) + ";</span><br/>"
+   for(var x = 0; x < NUM_SPANS; x++) {
+       text += "<span>" + getCharacterEncoding() + "</span><br/>"
    }
    aDiv.innerHTML = text;
 
@@ -45,6 +47,7 @@ function addAnimationToDiv(divID) {
            //Just once, after the last span animates
            $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
               function(e) {
+                  //Make a new div and remove this one from DOM
                   createDiv();
                   $("div#" + e.currentTarget.parentNode.id).remove();
               });
@@ -52,6 +55,11 @@ function addAnimationToDiv(divID) {
    });
 } //end myAnimate();
 
+function getCharacterEncoding() {
+   //Char encodings for half-width kana characters
+   //Could also include characters in range 383-450, for Latin chars
+   return "&#" + getRandomIntInclusive(65381, 65437) + ";";
+}
 
 // Returns a random integer between min (included) and max (included)
 function getRandomIntInclusive(min, max) {

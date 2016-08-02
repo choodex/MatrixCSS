@@ -1,9 +1,8 @@
 //Settings
 var MAX_Z_INDEX = 5;
 var NUM_DIVS = 10;
-var DOC_WIDTH = $(window).width();  //Limit to size of viewport for now
+var MAX_WIDTH = $('div.container').width();
 
-var currentZ = 0;
 for(var x = 0; x < NUM_DIVS; x++) {
     createDiv();
 }
@@ -11,21 +10,19 @@ for(var x = 0; x < NUM_DIVS; x++) {
 function createDiv() {
    var aDiv = document.createElement("div");
 
-   var divID = 'stream' + getRandomIntInclusive(0,1000);
+   var divID = 'stream' + getRandomIntInclusive(0,999);
    aDiv.setAttribute("id", divID);
 
-   aDiv.setAttribute("style", "z-index:" + currentZ + "; left:"+ getRandomIntInclusive(0, DOC_WIDTH) + "px;");
+   aDiv.setAttribute("style", "z-index:" + getRandomIntInclusive(0, MAX_Z_INDEX) + "; left:"+ getRandomIntInclusive(0, MAX_WIDTH) + "px;");
 
    var text = '';
    for(var x = 0; x < 20; x++) {
-       text += "<span>&#" + getRandomIntInclusive(20010, 33300) + ";</span>"
+       text += "<span>&#" + getRandomIntInclusive(20010, 33300) + ";</span><br/>"
    }
    aDiv.innerHTML = text;
 
-   $("body").prepend(aDiv);
+   $("div.container").prepend(aDiv);
    addAnimationToDiv(divID);
-
-   (currentZ > MAX_Z_INDEX) ? currentZ = 0 : currentZ += 1;
 }
 
 function addAnimationToDiv(divID) {

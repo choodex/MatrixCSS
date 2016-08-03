@@ -16,13 +16,13 @@ div.stream {
     display: block;
 }
 @keyframes flare {
-   12% {
-       color: rgba(255,255,255,1);
-   }
-   20% {
-       color: rgba(0,255,0,1);
-   }
-   100% {
-       color: rgba(0,255,0,0);
-   }
+    12% {
+        color: rgba(255,255,255,1);
+    }
+    20% {
+        color: rgba(0,255,0,1);
+    }
+    100% {
+        color: rgba(0,255,0,0);
+    }
 }

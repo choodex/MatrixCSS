@@ -12,12 +12,13 @@ for(var x = 0; x < NUM_DIVS; x++) {
 
 function createDiv() {
     var aDiv = document.createElement("div");
+    var aRandom = getRandomIntInclusive(0, 500);
 
-    var divID = 'stream' + getRandomIntInclusive(0, 999);
+    var divID = 'stream' + aRandom;
     aDiv.setAttribute("id", divID);
 
     aDiv.setAttribute("class", "stream");
-    aDiv.setAttribute("style", "z-index:" + getRandomIntInclusive(0, MAX_Z_INDEX) + "; left:" + (getRandomIntInclusive(0, MAX_WIDTH) + CONTAINER_OFFSET_Y) + "px;");
+    aDiv.setAttribute("style", "z-index:" + (aRandom % MAX_Z_INDEX) + "; left:" + (getRandomIntInclusive(0, MAX_WIDTH) + CONTAINER_OFFSET_Y) + "px;");
 
     var text = '';
     for(var x = 0; x < NUM_SPANS; x++) {

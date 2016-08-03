@@ -2,8 +2,9 @@
 var MAX_Z_INDEX = 2;
 var MAX_WIDTH = $('div.container').width() - 30;
 var MAX_HEIGHT = $('div.container').height() - 30;
+var CONTAINER_OFFSET_Y = $('div.container').offset().left;
 var NUM_DIVS = Math.floor(MAX_WIDTH / 30);   //Estimating high; 30px is average width of a character
-var NUM_SPANS = Math.floor(MAX_HEIGHT / 25);
+var NUM_SPANS = Math.floor(MAX_HEIGHT / 23);
 
 for(var x = 0; x < NUM_DIVS; x++) {
     createDiv();
@@ -15,7 +16,8 @@ function createDiv() {
    var divID = 'stream' + getRandomIntInclusive(0,999);
    aDiv.setAttribute("id", divID);
 
-   aDiv.setAttribute("style", "z-index:" + getRandomIntInclusive(0, MAX_Z_INDEX) + "; left:"+ getRandomIntInclusive(0, MAX_WIDTH) + "px;");
+   aDiv.setAttribute("class", "stream");
+   aDiv.setAttribute("style", "z-index:" + getRandomIntInclusive(0, MAX_Z_INDEX) + "; left:"+ (getRandomIntInclusive(0, MAX_WIDTH) + CONTAINER_OFFSET_Y)+ "px;");
 
    var text = '';
    for(var x = 0; x < NUM_SPANS; x++) {

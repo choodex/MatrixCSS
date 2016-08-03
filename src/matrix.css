@@ -1,16 +1,19 @@
 body {
-    background-color : #001900;  /* Black with a hint of green */
-}
-div.container {
-   width: 100%;
-   height: 100%;
-}
-div {
+    background-color: #001900;  /* Black with a hint of green */
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 1.1em;
     color: rgba(0,0,0,0);
+    margin: 0px;
+}
+div.container {
+   width: 800px;
+   height: 600px;
+}
+div.stream {
     position: absolute;
-    top: 0px;
+    height: inherit;
+    overflow: hidden;
+    display: block;
 }
 @keyframes flare {
    12% {

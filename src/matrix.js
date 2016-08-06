@@ -1,8 +1,8 @@
 //Settings
 var MAX_Z_INDEX = 2;
-var MAX_WIDTH = $('div.container').width() - 30;
-var MAX_HEIGHT = $('div.container').height() - 30;
-var CONTAINER_OFFSET_Y = $('div.container').offset().left;
+var MAX_WIDTH = $('div.matrixScreen').width() - 30;
+var MAX_HEIGHT = $('div.matrixScreen').height() - 30;
+var CONTAINER_OFFSET_Y = $('div.matrixScreen').offset().left;
 var NUM_DIVS = Math.floor(MAX_WIDTH / 30);   //Estimating high; 30px is average width of a character
 var NUM_SPANS = Math.floor(MAX_HEIGHT / 23);
 
@@ -26,7 +26,7 @@ function createDiv() {
     }
     aDiv.innerHTML = text;
 
-    $("div.container").prepend(aDiv);
+    $("div.matrixScreen").prepend(aDiv);
     addAnimationToDiv(divID);
 }
 

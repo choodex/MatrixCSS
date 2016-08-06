@@ -1,13 +1,14 @@
 body {
+    margin: 0px;
+}
+div.matrixScreen {
     background-color: #001900;  /* Black with a hint of green */
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 1.1em;
     color: rgba(0,0,0,0);
-    margin: 0px;
-}
-div.container {
-   width: 800px;
-   height: 600px;
+    width: 800px;
+    height: 600px;
+    margin: auto;
 }
 div.stream {
     position: absolute;

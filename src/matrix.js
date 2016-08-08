@@ -1,13 +1,26 @@
 //Settings
+var MATRIX_DIV_CLASS = 'div.matrixScreen';
 var MAX_Z_INDEX = 2;
-var MAX_WIDTH = $('div.matrixScreen').width() - 30;
-var MAX_HEIGHT = $('div.matrixScreen').height() - 30;
-var CONTAINER_OFFSET_Y = $('div.matrixScreen').offset().left;
-var NUM_DIVS = Math.floor(MAX_WIDTH / 30);   //Estimating high; 30px is average width of a character
-var NUM_SPANS = Math.floor(MAX_HEIGHT / 23);
+var MAX_WIDTH;
+var MAX_HEIGHT;
+var CONTAINER_OFFSET_Y;
+var NUM_DIVS;
+var NUM_SPANS;
 
-for(var x = 0; x < NUM_DIVS; x++) {
-    createDiv();
+refreshSettings();
+
+function refreshSettings() {
+    $("div[id^=stream]").remove();
+
+    MAX_WIDTH = $(MATRIX_DIV_CLASS).width() - 30;
+    MAX_HEIGHT = $(MATRIX_DIV_CLASS).height();
+    CONTAINER_OFFSET_Y = $(MATRIX_DIV_CLASS).offset().left;
+    NUM_DIVS = Math.floor(MAX_WIDTH / 30);   //Estimating high; 30px is average width of a character
+    NUM_SPANS = Math.floor(MAX_HEIGHT / 20);
+
+    for(var x = 0; x < NUM_DIVS; x++) {
+        createDiv();
+    }
 }
 
 function createDiv() {
@@ -26,7 +39,7 @@ function createDiv() {
     }
     aDiv.innerHTML = text;
 
-    $("div.matrixScreen").prepend(aDiv);
+    $(MATRIX_DIV_CLASS).prepend(aDiv);
     addAnimationToDiv(divID);
 }
 
@@ -43,8 +56,7 @@ function addAnimationToDiv(divID) {
             "animation-duration": "2200ms",
             "animation-delay": (animSpeed * index / lastSpanIndex) + "ms",
             "animation-iteration-count": "1",
-            "animation-timing-function": "ease-out",
-            "animation-fill-mode": "forwards"
+            "animation-timing-function": "ease-out"
         });
         if(index == lastSpanIndex) {
             //Just once, after the last span animates
@@ -68,3 +80,7 @@ function getCharacterEncoding() {
 function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+$(window).resize(function() {
+    refreshSettings();
+});

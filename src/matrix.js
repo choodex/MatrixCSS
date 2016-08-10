@@ -42,7 +42,7 @@ function createStream() {
 //Add a new set of spans to the given Stream. Includes adding the animation as well.
 function refreshStreamContent(streamID) {
     var aDiv = $('#' + streamID);
-    var animSpeed = getRandomIntInclusive(900, 2900);    
+    var animSpeed = getRandomIntInclusive(900, 3600);    
     var text = '';
 
     for(var x = 0; x < NUM_SPANS; x++) {
